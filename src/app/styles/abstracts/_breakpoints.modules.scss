@@ -24,32 +24,57 @@ $small-mobile: 320px;
     //* Remove any default padding */
 }
 
+/* ... other styles ... */
+
+/* Container with margin on the outside */
 .grid-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;  /* Horizontally center the grid items */
+    justify-content: center;
     align-items: center;
-    width: 100%;
-    max-width: 100%;   /* Adjust the max-width as per your preference */
-    margin-left: auto;
-    margin-right: auto;
-   
-  }
-  
-  .grid-item {
+    width: calc(100% - 32px); /* Subtracting 32px from both sides */
+    margin: 0 32px; /* Outside margin */
+    max-width: calc(100% - 64px); /* Adjusted max-width */
+}
+
+/* Grid items with margin between them */
+.grid-item {
     box-sizing: border-box;
-    flex: 0 0 calc((100vw - 220px) / 12); /* Adjusted column width calculation considering 10px padding and 1% margin between columns */
-    padding: 10px;
+    flex: 0 0 calc((100% - 48px) / 12); /* Subtracting 24px for the margin between columns */
+    padding: 0;
     background-color: blue;
     border: 1px solid #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
     overflow: hidden;
-  }
-  
+    margin-left: 12px; /* 24px divided by 2 for the margin between columns */
+}
+
+/* Remove the left margin from the first item and the right margin from the last item */
+.grid-item:first-child {
+    margin-left: 0;
+}
+
+.grid-item:last-child {
+    margin-right: 0;
+}
+
+/* ... other styles ... */
+
   .grid-item + .grid-item {
     margin-left: 1%; 
   }
+
+  .span-6 {
+    flex: 0 0 50%;
+    padding: 0;  /* Remove padding to span the whole width */
+}
+
+/* Remove the left margin from the second item to make them adjacent */
+.grid-item.span-6 + .grid-item.span-6 {
+    margin-left: 0; 
+    
+}
 //the responsive queries
 
 /* Media query for large desktop */
@@ -75,10 +100,52 @@ $small-mobile: 320px;
 
 /* Media query for large mobile */
 @media (min-width: $large-mobile) and (max-width: 833px) {
-    /* Your styles for large mobile here */
+    .grid-container {
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .grid-item {
+        flex: 0 0 100%; /* Make items take up full width */
+        margin-left: 0; /* Remove left margin */
+        margin-right: 0; /* Remove right margin */
+    }
+
+    .grid-item + .grid-item {
+        margin-top: 12px; /* Add margin between stacked items */
+    }
+
+    /* Adjusting the span items */
+    .grid-item.span-6 {
+        width: $large-mobile ;
+        flex: 1; /* Allow the item to grow and occupy available space */
+        margin-left: 0; /* Remove left margin */
+        margin-right: 0; /* Remove right margin */
+        min-width: 0; /* Ensure there's no min-width constraint */
+    }
 }
 
 /* Media query for small mobile */
 @media (max-width: $large-mobile) {
-    /* Your styles for small mobile here */
+    .grid-container {
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .grid-item {
+        flex: 0 0 100%; /* Make items take up full width */
+        margin-left: 0; /* Remove left margin */
+        margin-right: 0; /* Remove right margin */
+    }
+
+    .grid-item + .grid-item {
+        margin-top: 12px; /* Add margin between stacked items */
+    }
+
+    /* Adjusting the span items */
+    .grid-item.span-6 {
+        width: $small-mobile ;
+        flex: 1; /* Allow the item to grow and occupy available space */
+        margin-left: 0; /* Remove left margin */
+        margin-right: 0; /* Remove right margin */
+        min-width: 0; /* Ensure there's no min-width constraint */
+    }
 }
