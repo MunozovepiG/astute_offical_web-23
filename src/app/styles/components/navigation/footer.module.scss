@@ -1,0 +1,95 @@
+@use '../../abstracts/index.module' as ds;
+
+
+.footer-full-width {
+    width: 100vw;  
+    //height: 100vh;  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    background-color: black;
+}
+
+
+.footer-container {
+    flex: 1;
+    //min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+   // background-color: orange; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+
+.image-Row {
+    display: flex;
+    //background-color: green;
+  }
+  
+  .stack-items {
+    min-height: 140px;
+    width: 200px;
+    display: flex;
+    flex-direction: column; /* Changed to column */
+    justify-content: space-between;
+   // background-color: orange;
+  }
+
+
+
+
+
+  
+//the responsive footer-container 
+
+
+/* Media query for large desktop */
+@media (min-width: ds.$large-desktop) {
+    /* Your styles for large desktop here */
+    .footer-container {
+        width: ds.$large-desktop; 
+      //  background-color: bisque;     /* 100% of viewport width */        /* Remove any default padding */
+    }
+}
+
+/* Media query for normal desktop */
+@media (min-width: ds.$normal-desktop) and (max-width: 1727px) {
+    /* Your styles for normal desktop here */
+    .footer-container {
+        width: ds.$normal-desktop;  
+       // background-color: blueviolet;    /* 100% of viewport width */        /* Remove any default padding */
+    }
+}
+
+/* Media query for tablet */
+@media (min-width: ds.$tablet) and (max-width: 1439px) {
+    /* Your styles for tablet here */
+
+  
+
+    .footer-container {
+        width: ds.$tablet;      /* 100% of viewport width */        /* Remove any default padding */
+    }
+}
+
+/* Media query for large mobile */
+@media (min-width: ds.$large-mobile) and (max-width: 833px) {
+
+    .footer-container {
+        width: ds.$large-mobile;      /* 100% of viewport width */        /* Remove any default padding */
+    }
+  
+}
+
+/* Media query for small mobile */
+@media (max-width: ds.$large-mobile) {
+    .footer-container {
+        width: ds.$small-mobile;      /* 100% of viewport width */        /* Remove any default padding */
+    }
+   
+}
