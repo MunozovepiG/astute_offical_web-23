@@ -16,7 +16,7 @@ const Footer = () => {
 
 
   // Log the current route to the console
-  console.log('Current Route:', pathname);
+  //console.log('Current Route:', pathname);
 
   return (
 

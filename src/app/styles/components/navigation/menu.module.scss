@@ -7,7 +7,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center; 
-    background-color: pink;
+    background-color: ds.$white;
 }
 
 .logo-container{
@@ -17,7 +17,7 @@
 }
 
 .menu-container{
-    flex: 1;
+   // flex: 1;
     //min-height: 100vh;
     width: ds.$large-desktop;
     margin: 0;
@@ -26,10 +26,26 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    background-color: skyblue;
+    align-items:center;
+    //background-color: yellow;
     height: 80px; 
   
+}
+
+
+.main-menu-links-container{
+
+    display: flex;
+    justify-content: end;
+    width: ds.$large-desktop - 200px;
+   // background-color: green;
+}
+
+
+.menu-links-content-container{
+    display:flex;
+    width: 524px;
+    background-color: pink;
 }
 
 .menu-container-closed{
@@ -42,8 +58,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: start;
-    background-color: skyblue;
+    align-items: center;
+    background-color: ds.$white;
     height: 80px; 
   
 }
@@ -84,6 +100,22 @@
     align-items: start;
     justify-self: start;
 }
+
+.astute-logo-text{
+    margin-left: 24px;
+    color: ds.$black;
+    align-self: center;
+}
+
+.astute-image{
+    width: 64px;
+    height:  64px;
+}
+
+
+
+
+
 /* Media query for normal desktop */
 @media (min-width: ds.$normal-desktop) and (max-width: 1727px) {
     /* Your styles for normal desktop here */
@@ -91,6 +123,14 @@
         width: ds.$normal-desktop;  
        
        //background-color: blueviolet;    /* 100% of viewport width */        /* Remove any default padding */
+    }
+
+    .main-menu-links-container{
+
+        display: flex;
+        justify-content: end;
+        width: ds.$normal-desktop - 200px;
+       // background-color: green;
     }
 }
 
@@ -112,6 +152,25 @@
         height: 32px;
         margin-right: 32px;
     }
+
+    .astute-logo-text{
+        margin-left: 16px;
+        color: ds.$black;
+        align-self: center;
+    }
+
+    .astute-image{
+        width: 52px;
+        height:  52px;
+    }
+    
+    .main-menu-links-container{
+
+        display: none;
+    
+        //background-color: green;
+    }
+    
 }
 
 /* Media query for large mobile */
@@ -129,6 +188,19 @@
         height: 32px;
         margin-right: 32px;
     }
+
+    .astute-image{
+        width: 40px;
+        height:  40px;
+    }
+
+    .main-menu-links-container{
+
+        display: none;
+    
+        //background-color: green;
+    }
+    
 }
 
 /* Media query for small mobile */
@@ -144,4 +216,22 @@
         height: 32px;
         margin-right: 32px;
     }
+
+    .astute-logo-text{
+        margin-left: 16px;
+        color: ds.$black;
+        align-self: center;
+    }
+    .astute-image{
+        width: 40px;
+        height:  40px;
+    }
+
+    .main-menu-links-container{
+
+        display: none;
+    
+        //background-color: green;
+    }
+    
 }

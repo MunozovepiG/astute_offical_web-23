@@ -8,6 +8,7 @@ import menu_icon from '../../../../public/menu.svg'
 import close from '../../../../public/close.svg'
 import { useState } from 'react';
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 
 const Menu = () => {
@@ -23,19 +24,23 @@ const Menu = () => {
         setIsClicked(false);
       };
 
+      const pathname = usePathname()
+
+
   return (
 
     <div className={
         
         componentStyles['menu-full-width']} >
 
-        <div className={componentStyles['menu-container']} style={{ height: isClicked ? 'auto' : '68px' }}>
+        <div className={ `${componentStyles['menu-container']} ${componentStyles['']}` } style={{ height: isClicked ? 'auto' : '68px' }}>
         <div>
         <span className={componentStyles['logo-container']}>
         <Link href="/">
   
 
   <Image
+  className={componentStyles['astute-image']}
     src={astute_logo}
     alt="Astute Logo"
     width={64}
@@ -43,6 +48,14 @@ const Menu = () => {
   />
 
 </Link>
+
+
+
+<span
+className = {`${componentStyles['astute-logo-text']} ${customStyles['M32-bold']}`}
+>astute</span>
+
+
     </span>  
      
 
@@ -51,6 +64,55 @@ const Menu = () => {
            
            </div>
 {/* ... the menu - links ... */}
+
+<div className={componentStyles['main-menu-links-container']} > 
+
+   <span>
+    
+   <Link href="/"
+               className={`${customStyles['M18-bold']} ${componentStyles['menu-link']}
+               
+               ${pathname === '/' ? customStyles['main-links-active'] : ''}
+               `
+            }
+                >Home</Link>
+    </span> 
+
+    <span>
+    <Link href="/pages/about_us"
+               className={`${customStyles['M18-bold']} ${componentStyles['menu-link']}
+               ${pathname === '/pages/about_us' ? customStyles['main-links-active'] : ''}
+               `}
+                >About</Link>
+
+    </span>
+
+    <span>
+    <Link href="/pages/learn"
+               className={`${customStyles['M18-bold']} ${componentStyles['menu-link']}
+               ${pathname === '/pages/learn' ? customStyles['main-links-active'] : ''}
+               `}
+                >Learn</Link>
+    </span>
+    
+
+    <span>
+    <Link href="/pages/roadmap"
+               className={`${customStyles['M18-bold']} ${componentStyles['menu-link']}
+               ${pathname === '/pages/roadmap' ? customStyles['main-links-active'] : ''}
+               `}
+                >Roadmap</Link>
+
+    </span>
+
+    <span>
+    <Link href="/pages/contact_us"
+               className={`${customStyles['M18-bold']} ${componentStyles['menu-link']}
+               ${pathname === '/pages/contact_us' ? customStyles['main-links-active'] : ''}
+               `}
+                >Contact us</Link>
+    </span>
+   </div>
 
 {/* ... the mobile menu ... */}
 
@@ -74,10 +136,12 @@ const Menu = () => {
         <span className={componentStyles['mobile-icon-container']}>
  <Image
           src={menu_icon} // Replace with the path to your original image
-          alt="Astute Logo"
+          alt="Menu"
           width={28}
           height={28}
         />
+
+    
         </span>
        
       )}
@@ -96,27 +160,39 @@ const Menu = () => {
             
           <li>
                 <Link href="/"
-               className={`${customStyles['M18-bold']} ${componentStyles['menu-link']} ${componentStyles['menu-link:hover']}`}
+               className={`${customStyles['M18-bold']} ${componentStyles['menu-link']}
+               
+               ${pathname === '/' ? customStyles['main-links-active'] : ''}
+               `
+            }
                 >Home</Link>
             </li>
             <li>
                 <Link href="/pages/about_us"
-               className={`${customStyles['M18-bold']} ${componentStyles['menu-link']}`}
+               className={`${customStyles['M18-bold']} ${componentStyles['menu-link']}
+               ${pathname === '/pages/about_us' ? customStyles['main-links-active'] : ''}
+               `}
                 >About</Link>
             </li>
             <li>
                 <Link href="/pages/learn"
-               className={`${customStyles['M18-bold']} ${componentStyles['menu-link']}`}
+               className={`${customStyles['M18-bold']} ${componentStyles['menu-link']}
+               ${pathname === '/pages/learn' ? customStyles['main-links-active'] : ''}
+               `}
                 >Learn</Link>
             </li>
             <li>
                 <Link href="/pages/roadmap"
-               className={`${customStyles['M18-bold']} ${componentStyles['menu-link']}`}
+               className={`${customStyles['M18-bold']} ${componentStyles['menu-link']}
+               ${pathname === '/pages/roadmap' ? customStyles['main-links-active'] : ''}
+               `}
                 >Roadmap</Link>
             </li>
             <li>
                 <Link href="/pages/contact_us"
-               className={`${customStyles['M18-bold']} ${componentStyles['menu-link']}`}
+               className={`${customStyles['M18-bold']} ${componentStyles['menu-link']}
+               ${pathname === '/pages/contact_us' ? customStyles['main-links-active'] : ''}
+               `}
                 >Contact us</Link>
             </li>
             
