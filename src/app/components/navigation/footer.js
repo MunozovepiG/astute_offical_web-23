@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import customStyles from '../../styles/abstracts/_index.module.scss'
 import componentStyles from '../../styles/components/navigation/footer.module.scss'
@@ -6,9 +7,17 @@ import logo_wArrow from '../../../../public/logo_wArrow.svg'
 import google_play_button from '../../../../public/google_play_button.svg'
 import Dropdown from '../selections/dropdown'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 
 const Footer = () => {
+
+  const pathname = usePathname()
+
+
+  // Log the current route to the console
+  console.log('Current Route:', pathname);
+
   return (
 
 
@@ -69,7 +78,7 @@ const Footer = () => {
 <div className={`${customStyles['grid-item']} ${customStyles['span-6']}`}>
 <span className={customStyles['space-16']} ></span>
 <Link href={'/pages/legals'}
-className={customStyles['M24-bold']}
+className={`${customStyles['M24-bold']} ${pathname === '/pages/legals' ? customStyles['active'] : ''}`}
 > Legals</Link>
 
 <span className={customStyles['space-8']} ></span>
@@ -90,5 +99,6 @@ className={customStyles['M24-bold']}
    
   )
 }
+
 
 export default Footer

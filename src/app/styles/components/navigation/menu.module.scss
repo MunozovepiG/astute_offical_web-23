@@ -1,0 +1,147 @@
+@use '../../abstracts/index.module' as ds;
+
+.menu-full-width{
+    width: 100vw;  
+    //height: 100vh;  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    background-color: pink;
+}
+
+.logo-container{
+    display: flex;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.menu-container{
+    flex: 1;
+    //min-height: 100vh;
+    width: ds.$large-desktop;
+    margin: 0;
+    padding: 0;
+   // background-color: orange; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: skyblue;
+    height: 80px; 
+  
+}
+
+.menu-container-closed{
+    flex: 1;
+    //min-height: 100vh;
+    width: ds.$large-desktop;
+    margin: 0;
+    padding: 0;
+   // background-color: orange; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+    background-color: skyblue;
+    height: 80px; 
+  
+}
+
+
+
+.menu-container-expanded {
+    height: auto; // Height adjusted dynamically when the list is opened
+  }
+
+.mobile-menu{
+    display: none;
+    width: 32px;
+    height: 32px;
+    margin-right: 32px;
+}
+
+.ul-nonbullets{
+    list-style-type: none;
+}
+
+
+
+.mobile-menu-column{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+   
+    //background-color: beige;
+
+}
+
+.mobile-icon-container{
+  height: 182px;
+    display: flex;
+    flex-direction: column;
+    //background-color: brown;
+    align-items: start;
+    justify-self: start;
+}
+/* Media query for normal desktop */
+@media (min-width: ds.$normal-desktop) and (max-width: 1727px) {
+    /* Your styles for normal desktop here */
+    .menu-container {
+        width: ds.$normal-desktop;  
+       
+       //background-color: blueviolet;    /* 100% of viewport width */        /* Remove any default padding */
+    }
+}
+
+/* Media query for tablet */
+@media (min-width: ds.$tablet) and (max-width: 1439px) {
+    /* Your styles for tablet here */
+
+  
+
+    .menu-container {
+        width: ds.$tablet; 
+      
+       /* 100% of viewport width */        /* Remove any default padding */
+    }
+
+    .mobile-menu{
+        display: flex;
+        width: 32px;
+        height: 32px;
+        margin-right: 32px;
+    }
+}
+
+/* Media query for large mobile */
+@media (min-width: ds.$large-mobile) and (max-width: 833px) {
+
+    .menu-container {
+        width: ds.$large-mobile; 
+      
+             /* 100% of viewport width */        /* Remove any default padding */
+    }
+  
+    .mobile-menu{
+        display: flex;
+        width: 32px;
+        height: 32px;
+        margin-right: 32px;
+    }
+}
+
+/* Media query for small mobile */
+@media (max-width: ds.$large-mobile) {
+    .menu-container {
+        width: ds.$small-mobile; 
+       
+             /* 100% of viewport width */        /* Remove any default padding */
+    }
+    .mobile-menu{
+        display: flex;
+        width: 32px;
+        height: 32px;
+        margin-right: 32px;
+    }
+}
